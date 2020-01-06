@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+cd /app || exit
+
+exec \
+	s6-setuidgid abc dotnet DnsServerApp.dll /config
