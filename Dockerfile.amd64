@@ -24,7 +24,7 @@ RUN \
 RUN \
   wget https://download.technitium.com/dns/DnsServerPortable.tar.gz && \
   tar -zxf DnsServerPortable.tar.gz -C /app && \
-  setcap CAP_NET_BIND_SERVICE=+eip /app/DnsServerApp.dll
+  setcap CAP_NET_BIND_SERVICE=+eip /usr/share/dotnet/dotnet
 
 
 WORKDIR /app
