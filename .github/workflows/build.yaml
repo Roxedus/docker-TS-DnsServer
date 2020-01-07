@@ -1,7 +1,11 @@
 name: Build Image
 
 on:
-  push, pull_request:
+  push:
+    paths:
+    - 'root/**'
+    - 'Dockerfile.*'
+  pull_request:
     paths:
     - 'root/**'
     - 'Dockerfile.*'
