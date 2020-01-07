@@ -11,12 +11,12 @@ jobs:
       BUILDKIT_HOST: tcp://0.0.0.0:1234
       DOCKER_CLI_EXPERIMENTAL: enabled
       DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-      DOCKER_IMAGE: playground
+      DOCKER_IMAGE: ts-dnsserver
       DOCKER_TAG: latest
-      DOCKER_USER: si0972
+      DOCKER_USER: roxedus
       PLATFORM_1: amd64
       PLATFORM_2: arm64
-      REPO: si0972/playground
+      REPO: roxedus/ts-dnsserver
       
     steps:
     - uses: actions/checkout@v1
