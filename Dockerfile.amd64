@@ -1,9 +1,9 @@
-FROM base:latest
+FROM roxedus/base-alpine:latest
 
 ENV DOTNET_VER=3.1.0 DOTNET_ARCH=x64
 
 LABEL maintainer=Roxedus
-LABEL dotnet_version=${DOTNET_VER}
+LABEL dotnet_version=${DOTNET_VER} dotnet_arch=${DOTNET_ARCH}
 
 RUN \
  apk add --no-cache --virtual=run-deps \
@@ -11,10 +11,10 @@ RUN \
     libgcc \
     icu-libs \
     libintl \
-	tar
+	  tar
 
 RUN \
-  wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/${DOTNET_VER}/dotnet-runtime-${DOTNET_VER}-linux-musl-x64.tar.gz \
+  wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/${DOTNET_VER}/dotnet-runtime-${DOTNET_VER}-linux-musl-${DOTNET_ARCH}.tar.gz \
   && mkdir -p /usr/share/dotnet \
   && tar -C /usr/share/dotnet -oxzf dotnet.tar.gz \
   && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
