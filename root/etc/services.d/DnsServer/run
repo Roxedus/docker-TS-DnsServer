@@ -2,4 +2,4 @@
 cd /app || exit
 
 exec \
-	s6-setuidgid abc dotnet DnsServerApp.dll /config
+	s6-setuidgid rox dotnet DnsServerApp.dll /config
