@@ -1,4 +1,4 @@
-FROM roxedus/base-alpine:latest
+FROM ghcr.io/roxedus/base-alpine:latest
 
 ENV DOTNET_VER=3.1.0 DOTNET_ARCH=arm64
 
