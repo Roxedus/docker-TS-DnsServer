@@ -28,5 +28,5 @@ RUN \
 
 
 WORKDIR /app
-EXPOSE 5380 53/udp
+EXPOSE 5380 53/udp 67/udp
 COPY root/ /
