@@ -1,6 +1,6 @@
 FROM ghcr.io/roxedus/base-alpine:latest
 
-ENV DOTNET_VER=3.1.0 DOTNET_ARCH=x64
+ENV DOTNET_VER=5.0.1 DOTNET_ARCH=x64
 
 LABEL maintainer=Roxedus
 LABEL dotnet_version=${DOTNET_VER} dotnet_arch=${DOTNET_ARCH}
