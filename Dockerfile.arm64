@@ -1,4 +1,4 @@
-FROM ghcr.io/roxedus/base-alpine:latest
+FROM ghcr.io/roxedus/base-alpine:2021-08-12_22.29
 
 ENV DOTNET_VER=5.0.1 DOTNET_ARCH=arm64
 
@@ -6,13 +6,13 @@ LABEL maintainer=Roxedus
 LABEL dotnet_version=${DOTNET_VER} dotnet_arch=${DOTNET_ARCH}
 
 RUN \
- apk add --no-cache --virtual=run-deps \
+  apk add --no-cache --virtual=run-deps \
     libstdc++ \
     libgcc \
     icu-libs \
     libintl \
     libcap \
-	  tar
+    tar
 
 RUN \
   wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/${DOTNET_VER}/dotnet-runtime-${DOTNET_VER}-linux-musl-${DOTNET_ARCH}.tar.gz \
