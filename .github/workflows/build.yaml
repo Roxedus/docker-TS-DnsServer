@@ -21,7 +21,7 @@ jobs:
       time: ${{ steps.vars.outputs.time }}
 
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - name: Create VARS
         id: vars
         run: |
