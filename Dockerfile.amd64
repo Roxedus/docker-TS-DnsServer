@@ -1,6 +1,6 @@
-FROM ghcr.io/roxedus/base-alpine:2021-08-12_22.29
+FROM ghcr.io/roxedus/base-alpine:2022-04-01_20.02
 
-ENV DOTNET_VER=5.0.1 DOTNET_ARCH=x64
+ENV DOTNET_VER=6.0.3 DOTNET_ARCH=x64
 
 LABEL maintainer=Roxedus
 LABEL dotnet_version=${DOTNET_VER} dotnet_arch=${DOTNET_ARCH}
@@ -15,16 +15,16 @@ RUN \
     tar
 
 RUN \
-  wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/${DOTNET_VER}/dotnet-runtime-${DOTNET_VER}-linux-musl-${DOTNET_ARCH}.tar.gz \
-  && mkdir -p /usr/share/dotnet \
-  && tar -C /usr/share/dotnet -oxzf dotnet.tar.gz \
-  && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
-  && rm dotnet.tar.gz
+  wget -q -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/${DOTNET_VER}/dotnet-runtime-${DOTNET_VER}-linux-musl-${DOTNET_ARCH}.tar.gz && \
+  mkdir -p /usr/share/dotnet && \
+  tar -C /usr/share/dotnet -oxzf dotnet.tar.gz && \
+  ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet && \
+  rm dotnet.tar.gz && \
+  setcap CAP_NET_BIND_SERVICE=+eip /usr/share/dotnet/dotnet
 
 RUN \
-  wget https://download.technitium.com/dns/DnsServerPortable.tar.gz && \
-  tar -zxf DnsServerPortable.tar.gz -C /app && \
-  setcap CAP_NET_BIND_SERVICE=+eip /usr/share/dotnet/dotnet
+  wget -q https://download.technitium.com/dns/DnsServerPortable.tar.gz && \
+  tar -zxf DnsServerPortable.tar.gz -C /app
 
 
 WORKDIR /app
