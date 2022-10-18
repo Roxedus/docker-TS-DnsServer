@@ -34,7 +34,7 @@ jobs:
           echo "::set-output name=url::${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/master/README.md"
           echo "::set-output name=tag::$(echo ${GITHUB_REPOSITORY//docker-/} | tr '[:upper:]' '[:lower:]'):${GITHUB_REF//refs\/heads\//}-${{ matrix.architecture }}"
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2.0.0
+        uses: docker/setup-qemu-action@v2.1.0
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2.2.0
