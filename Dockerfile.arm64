@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/roxedus/base-alpine:2023-01-17_14.58
+FROM ghcr.io/roxedus/base-alpine:2023-01-27_20.02
 
 ENV DOTNET_VER=7.0.0 DOTNET_ARCH=arm64
 
